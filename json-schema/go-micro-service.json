@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/go-micro/json-schema/go-micro-service.json",
+  "title": "Go Micro Service Definition",
+  "description": "JSON Schema representing a Go Micro service definition, including service metadata, endpoint registration, and node information as exposed via the registry.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique service name used for discovery and routing."
+    },
+    "version": {
+      "type": "string",
+      "description": "Service version string."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Custom key-value metadata for the service.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "endpoints": {
+      "type": "array",
+      "description": "List of RPC endpoints exposed by the service.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Fully qualified endpoint name (e.g., Greeter.Hello)."
+          },
+          "request": {
+            "type": "object",
+            "description": "Request type information.",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Request message type name."
+              },
+              "type": {
+                "type": "string",
+                "description": "Request type (e.g., protobuf message name)."
+              }
+            },
+            "additionalProperties": true
+          },
+          "response": {
+            "type": "object",
+            "description": "Response type information.",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Response message type name."
+              },
+              "type": {
+                "type": "string",
+                "description": "Response type (e.g., protobuf message name)."
+              }
+            },
+            "additionalProperties": true
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Endpoint metadata (e.g., stream, subscriber info).",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["name"],
+        "additionalProperties": true
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "description": "Registered nodes running this service.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique node identifier."
+          },
+          "address": {
+            "type": "string",
+            "description": "Node address (host:port)."
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Node-level metadata (e.g., transport, broker, protocol).",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["id", "address"],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": true
+}

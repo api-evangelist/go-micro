@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/go-micro/json-schema/go-micro-options.json",
+  "title": "Go Micro Service Options",
+  "description": "JSON Schema representing the Go Micro service configuration options including server, client, registry, broker, transport, and runtime settings.",
+  "type": "object",
+  "properties": {
+    "server": {
+      "type": "object",
+      "description": "Server configuration options.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Service name."
+        },
+        "address": {
+          "type": "string",
+          "description": "Bind address (host:port).",
+          "default": ":0"
+        },
+        "advertise": {
+          "type": "string",
+          "description": "Address to advertise to the registry."
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique server ID."
+        },
+        "version": {
+          "type": "string",
+          "description": "Service version.",
+          "default": "latest"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Server metadata.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "registerTTL": {
+          "type": "integer",
+          "description": "Registration TTL in seconds.",
+          "default": 90
+        },
+        "registerInterval": {
+          "type": "integer",
+          "description": "Registration refresh interval in seconds.",
+          "default": 30
+        }
+      },
+      "additionalProperties": true
+    },
+    "client": {
+      "type": "object",
+      "description": "Client configuration options.",
+      "properties": {
+        "contentType": {
+          "type": "string",
+          "description": "Default content type for requests.",
+          "default": "application/protobuf"
+        },
+        "retries": {
+          "type": "integer",
+          "description": "Number of retries on failure.",
+          "default": 1
+        },
+        "requestTimeout": {
+          "type": "string",
+          "description": "Request timeout duration (e.g., 5s).",
+          "default": "5s"
+        },
+        "poolSize": {
+          "type": "integer",
+          "description": "Connection pool size.",
+          "default": 1
+        },
+        "poolTTL": {
+          "type": "string",
+          "description": "Connection pool TTL."
+        }
+      },
+      "additionalProperties": true
+    },
+    "registry": {
+      "type": "object",
+      "description": "Service registry configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Registry implementation.",
+          "enum": ["mdns", "consul", "etcd", "kubernetes", "memory"],
+          "default": "mdns"
+        },
+        "addresses": {
+          "type": "array",
+          "description": "Registry server addresses.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "broker": {
+      "type": "object",
+      "description": "Message broker configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Broker implementation.",
+          "enum": ["http", "nats", "rabbitmq", "redis", "kafka", "memory"],
+          "default": "http"
+        },
+        "addresses": {
+          "type": "array",
+          "description": "Broker server addresses.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "transport": {
+      "type": "object",
+      "description": "Transport layer configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Transport implementation.",
+          "enum": ["http", "grpc", "tcp", "quic", "memory"],
+          "default": "http"
+        },
+        "addresses": {
+          "type": "array",
+          "description": "Transport addresses.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "selector": {
+      "type": "object",
+      "description": "Service selector / load balancer configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Selector strategy.",
+          "enum": ["roundrobin", "random", "cache"],
+          "default": "cache"
+        }
+      },
+      "additionalProperties": true
+    },
+    "runtime": {
+      "type": "object",
+      "description": "Runtime configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Runtime implementation.",
+          "enum": ["local", "kubernetes"],
+          "default": "local"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source for the runtime."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

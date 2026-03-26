@@ -40,6 +40,12 @@ apis:
         url: https://go-micro.dev/docs/guide
       - type: Getting Started
         url: https://go-micro.dev/getting-started
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/go-micro/refs/heads/main/json-schema/go-micro-service.json
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/go-micro/refs/heads/main/json-schema/go-micro-options.json
 common:
   - type: Website
     url: https://go-micro.dev/
