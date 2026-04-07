@@ -7,13 +7,13 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Microservices
+  - Distributed Systems
+  - Frameworks
   - Go
   - Golang
-  - Distributed Systems
-  - Service Discovery
+  - Microservices
   - RPC
-  - Frameworks
+  - Service Discovery
 url: >-
   https://raw.githubusercontent.com/api-evangelist/go-micro/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -28,13 +28,13 @@ apis:
       async messaging out of the box.
     humanURL: https://go-micro.dev/
     tags:
-      - Microservices
+      - Distributed Systems
+      - Frameworks
       - Go
       - Golang
-      - Distributed Systems
-      - Service Discovery
+      - Microservices
       - RPC
-      - Frameworks
+      - Service Discovery
     properties:
       - type: Documentation
         url: https://go-micro.dev/docs/guide
