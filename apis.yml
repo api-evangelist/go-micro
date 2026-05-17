@@ -38,7 +38,7 @@ apis:
     properties:
       - type: Documentation
         url: https://go-micro.dev/docs/guide
-      - type: Getting Started
+      - type: GettingStarted
         url: https://go-micro.dev/getting-started
       - type: JSONSchema
         url: >-
@@ -51,9 +51,9 @@ common:
     url: https://go-micro.dev/
   - type: Documentation
     url: https://go-micro.dev/docs/guide
-  - type: Getting Started
+  - type: GettingStarted
     url: https://go-micro.dev/getting-started
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/go-micro
 maintainers:
   - FN: Kin Lane
