@@ -31,6 +31,14 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/go-micro.png
 tags:
   - Distributed Systems
+  - Framework
+  - Go
+  - Golang
+  - Microservices
+  - RPC
+  - Service Discovery
+tags_raw:
+  - Distributed Systems
   - Frameworks
   - Go
   - Golang
@@ -51,6 +59,14 @@ apis:
       async messaging out of the box.
     humanURL: https://go-micro.dev/
     tags:
+      - Distributed Systems
+      - Framework
+      - Go
+      - Golang
+      - Microservices
+      - RPC
+      - Service Discovery
+    tags_raw:
       - Distributed Systems
       - Frameworks
       - Go
